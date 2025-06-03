@@ -1,0 +1,271 @@
+
+### 1. **What is Java?**
+
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It was developed by Sun Microsystems (now owned by Oracle). Java is platform-independent due to the Java Virtual Machine (JVM).
+
+**Key Features:**
+
+* Platform Independent
+* Object-Oriented
+* Simple and Secure
+* Robust and Portable
+* High Performance
+
+---
+
+### 2. **Why Java?**
+
+* **Write Once, Run Anywhere**: Java code runs on any device with a JVM.
+* **Rich API**: Provides a vast set of standard libraries.
+* **Large Community**: Help and support are easily available.
+* **Memory Management**: Built-in garbage collection.
+* **Multithreading**: Built-in support for multithreaded programming.
+
+---
+
+### 3. **Java Syntax**
+
+Java programs are made up of classes and methods. Here's a basic syntax:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+---
+
+### 4. **Java Input and Output**
+
+Java uses `Scanner` for input and `System.out` for output.
+
+```java
+import java.util.Scanner;
+
+public class InputExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name);
+    }
+}
+```
+
+---
+
+### 5. **Java Comments**
+
+* **Single-line comment**: `// This is a comment`
+* **Multi-line comment**:
+
+```java
+/*
+This is a
+multi-line comment
+*/
+```
+
+* **Documentation comment**: `/** This is a documentation comment */`
+
+---
+
+### 6. **Java Variables**
+
+Variables store data values.
+
+```java
+int age = 20;
+String name = "John";
+float marks = 89.5f;
+```
+
+---
+
+### 7. **Java Data Types**
+
+* **Primitive**: int, byte, short, long, float, double, boolean, char
+* **Non-Primitive**: String, Arrays, Classes
+
+```java
+int x = 10;
+double pi = 3.14;
+boolean isJavaFun = true;
+char grade = 'A';
+```
+
+---
+
+### 7.1 **Variable Ranges (Size and Range of Primitive Data Types)**
+
+| Data Type | Size (bytes) | Range                                                   |
+| --------- | ------------ | ------------------------------------------------------- |
+| byte      | 1 byte       | -128 to 127                                             |
+| short     | 2 bytes      | -32,768 to 32,767                                       |
+| int       | 4 bytes      | -2,147,483,648 to 2,147,483,647                         |
+| long      | 8 bytes      | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| float     | 4 bytes      | 3.4e−038 to 3.4e+038 (approx)                           |
+| double    | 8 bytes      | 1.7e−308 to 1.7e+308 (approx)                           |
+| char      | 2 bytes      | 0 to 65,535 (unsigned)                                  |
+| boolean   | 1 bit        | true or false                                           |
+
+
+**Example:**
+
+
+```java
+public class RangeExample {
+    public static void main(String[] args) {
+        byte b = 127;         // Max value for byte
+        short s = 32767;      // Max value for short
+        int i = 2147483647;   // Max value for int
+        long l = 9223372036854775807L; // Max value for long
+        float f = 3.14f;      // Float value
+        double d = 3.14159265358979; // Double value
+
+        System.out.println("byte: " + b);
+        System.out.println("short: " + s);
+        System.out.println("int: " + i);
+        System.out.println("long: " + l);
+        System.out.println("float: " + f);
+        System.out.println("double: " + d);
+    }
+}
+```
+
+**Output:**
+
+```java
+byte: 127
+short: 32767
+int: 2147483647
+long: 9223372036854775807
+float: 3.14
+double: 3.14159265358979
+```
+
+---
+
+### 8. **Java Operators**
+
+* **Arithmetic**: +, -, \*, /, %
+* **Relational**: ==, !=, >, <, >=, <=
+* **Logical**: &&, ||, !
+* **Assignment**: =, +=, -=, \*=, /=
+
+```java
+int a = 10, b = 5;
+System.out.println(a + b); // 15
+System.out.println(a > b); // true
+```
+
+---
+
+### 9. **Java Control Structures**
+
+#### a. **Sequential Statement**
+
+Executed line by line.
+
+```java
+int a = 5;
+int b = 10;
+int sum = a + b;
+System.out.println("Sum = " + sum);
+```
+
+#### b. **Selection Statement (Decision Making)**
+
+* **if**, **if-else**, **nested-if**, **switch**
+
+```java
+int num = 20;
+if(num % 2 == 0){
+    System.out.println("Even");
+}else{
+    System.out.println("Odd");
+}
+```
+
+#### c. **Looping Statement (Iteration)**
+
+* **for loop**
+* **while loop**
+* **do-while loop**
+
+```java
+// for loop
+for(int i = 1; i <= 5; i++){
+    System.out.println(i);
+}
+```
+
+```java
+// while loop
+int i = 1;
+while(i <= 5){
+    System.out.println(i);
+    i++;
+}
+```
+
+```java
+// do-while loop
+int j = 1;
+do{
+    System.out.println(j);
+    j++;
+}while(j <= 5);
+```
+
+#### d. **Jumping Statement**
+
+* **break**, **continue**, **return**
+
+```java
+// break
+for(int i = 1; i <= 5; i++){
+    if(i == 3) break;
+    System.out.println(i);
+}
+```
+
+```java
+// continue
+for(int i = 1; i <= 5; i++){
+    if(i == 3) continue;
+    System.out.println(i);
+}
+```
+
+```java
+// return
+public class ReturnExample {
+    public static void main(String[] args) {
+        System.out.println("Before return");
+        return;
+        // System.out.println("After return"); // Unreachable code
+    }
+}
+```
+
+---
+
+### 10. **Java Arrays**
+
+Arrays are used to store multiple values in a single variable.
+
+```java
+// Declaration and initialization
+int[] arr = {10, 20, 30, 40};
+
+// Accessing elements
+System.out.println(arr[0]); // Output: 10
+
+// Looping through array
+for(int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+```
