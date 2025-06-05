@@ -1,0 +1,378 @@
+📘 Java Array: Complete Notes
+🔹 1. What is an Array?
+An array is a container object that holds a fixed number of elements of the same data type.
+
+Arrays are used to store multiple values in a single variable.
+
+Syntax:
+
+datatype[] arrayName; // preferred
+datatype arrayName[]; // also valid
+
+Example:
+
+int[] marks = new int[5]; // Declaration + memory allocation
+🔹 2. Array Declaration, Instantiation, Initialization
+➤ Declaration:
+
+int[] arr; // only reference created
+➤ Instantiation:
+
+arr = new int[5]; // memory allocated
+➤ Initialization:
+
+arr[0] = 10;
+arr[1] = 20;
+// ...
+➤ Combined:
+
+int[] arr = {10, 20, 30, 40, 50}; // declaration + instantiation + initialization
+🔹 3. Types of Arrays
+1. Single Dimensional Array:
+A list of elements in a single row/line.
+
+int[] numbers = {1, 2, 3, 4, 5};
+2. Multidimensional Array:
+Array of arrays (mostly used: 2D array).
+
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+🔹 4. Array Length
+Use array.length (no brackets) to get the number of elements.
+
+System.out.println(arr.length);
+
+🔹 5. Traversing Arrays
+➤ Using For Loop:
+
+for (int i = 0; i < arr.length; i++) {
+    System.out.println(arr[i]);
+}
+➤ Using For-Each Loop:
+
+for (int num : arr) {
+    System.out.println(num);
+}
+
+🔹 6. Passing Arrays to Methods
+
+public static void printArray(int[] arr) {
+    for (int i : arr)
+        System.out.println(i);
+}
+
+
+Call:
+
+printArray(new int[]{1, 2, 3});
+🔹 7. Returning Array from Method
+
+public static int[] getArray() {
+    return new int[]{10, 20, 30};
+}
+
+Call:
+int[] result = getArray();
+
+🔹 8. Array Copying
+
+➤ Manual Copy:
+int[] copy = new int[arr.length];
+for (int i = 0; i < arr.length; i++) {
+    copy[i] = arr[i];
+}
+➤ System.arraycopy():
+System.arraycopy(source, 0, dest, 0, length);
+
+➤ Arrays.copyOf():
+int[] copy = Arrays.copyOf(arr, arr.length);
+
+🔹 9. Common Array Utility Methods (java.util.Arrays)
+import java.util.Arrays;
+Arrays.sort(arr);
+
+Arrays.toString(arr);
+
+Arrays.equals(arr1, arr2);
+
+Arrays.fill(arr, value);
+
+Arrays.binarySearch(arr, key);
+
+
+🔹 10. Multidimensional Arrays
+
+➤ Declaration:
+int[][] matrix = new int[3][3];
+
+➤ Initialization:
+
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+➤ Traversal:
+
+for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix[i].length; j++) {
+        System.out.print(matrix[i][j] + " ");
+    }
+    System.out.println();
+}
+🔹 11. Jagged Arrays (Array of Arrays with Different Sizes)
+
+int[][] jagged = new int[3][];
+jagged[0] = new int[2];
+jagged[1] = new int[3];
+jagged[2] = new int[1];
+
+🔹 12. Array of Objects
+
+class Student {
+    String name;
+    Student(String name) {
+        this.name = name;
+    }
+}
+
+Student[] students = new Student[3];
+students[0] = new Student("John");
+
+🔹 13. Anonymous Arrays
+
+printArray(new int[]{1, 2, 3});
+
+🔹 14. Arrays with main()
+
+public class Demo {
+    public static void main(String[] args) {
+        for (String arg : args)
+            System.out.println(arg);
+    }
+}
+
+🔰 1. Find the Largest Element in an Array
+✅ Problem:
+Write a program to find the largest number in an array.
+
+Code:-
+public class LargestInArray {
+    public static void main(String[] args) {
+        int[] arr = {15, 42, 3, 79, 21};
+        int max = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+        }
+
+        System.out.println("Largest element: " + max);
+    }
+}
+
+Output:-
+Largest element: 79
+
+🔰 2. Reverse an Array
+✅ Problem:
+Print the array elements in reverse order.
+
+👨‍💻 Code:
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+
+        System.out.print("Reversed Array: ");
+        for (int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+📤 Output:
+Reversed Array: 5 4 3 2 1
+
+
+🔰 3. Sum of All Elements in Array
+✅ Problem:
+Calculate the sum of all elements.
+
+👨‍💻 Code:
+public class SumArray {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40};
+        int sum = 0;
+
+        for (int num : arr) {
+            sum += num;
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+}
+📤 Output:
+Sum = 100
+
+
+🔰 4. Count Even and Odd Numbers
+✅ Problem:
+Count how many even and odd numbers are in the array.
+
+👨‍💻 Code:
+public class CountEvenOdd {
+    public static void main(String[] args) {
+        int[] arr = {1, 4, 6, 9, 11, 12};
+        int even = 0, odd = 0;
+
+        for (int num : arr) {
+            if (num % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        System.out.println("Even: " + even);
+        System.out.println("Odd: " + odd);
+    }
+}
+📤 Output:
+Even: 3
+Odd: 3
+
+
+🔰 5. Copy Elements of One Array to Another
+✅ Problem:
+Copy elements from one array to another.
+
+👨‍💻 Code:
+public class CopyArray {
+    public static void main(String[] args) {
+        int[] original = {5, 10, 15};
+        int[] copy = new int[original.length];
+
+        for (int i = 0; i < original.length; i++) {
+            copy[i] = original[i];
+        }
+
+        System.out.print("Copied Array: ");
+        for (int i : copy)
+            System.out.print(i + " ");
+    }
+}
+📤 Output:
+Copied Array: 5 10 15
+
+
+🔰 6. Find Duplicate Elements in Array
+✅ Problem:
+Print the duplicate elements.
+
+👨‍💻 Code:
+public class DuplicateElements {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 1};
+
+        System.out.print("Duplicates: ");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.print(arr[i] + " ");
+                    break;
+                }
+            }
+        }
+    }
+}
+📤 Output:
+Duplicates: 1 2
+
+
+🔰 7. Sort an Array in Ascending Order
+✅ Problem:
+Sort the array in ascending order using Bubble Sort.
+
+👨‍💻 Code:
+public class SortArray {
+    public static void main(String[] args) {
+        int[] arr = {5, 1, 4, 2, 8};
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    // swap
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+        System.out.print("Sorted Array: ");
+        for (int i : arr)
+            System.out.print(i + " ");
+    }
+}
+📤 Output:
+
+Sorted Array: 1 2 4 5 8
+
+
+🔰 8. Check if Array is Palindrome
+✅ Problem:
+Check if the array is a palindrome (reads same forward and backward).
+
+👨‍💻 Code:
+public class PalindromeArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 1};
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (arr[i] != arr[arr.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome)
+            System.out.println("Array is a Palindrome");
+        else
+            System.out.println("Array is NOT a Palindrome");
+    }
+}
+
+📤 Output:
+Array is a Palindrome
+
+
+
+🔰 9. Find the Second Largest Element
+✅ Problem:
+Find the second largest number in the array.
+
+👨‍💻 Code:
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] arr = {12, 45, 67, 23, 89};
+        int max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            if (num > max) {
+                secondMax = max;
+                max = num;
+            } else if (num > secondMax && num != max) {
+                secondMax = num;
+            }
+        }
+
+        System.out.println("Second Largest: " + secondMax);
+    }
+}
+📤 Output:
+Second Largest: 67
+
+
+
